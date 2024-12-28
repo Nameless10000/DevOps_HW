@@ -9,7 +9,8 @@ namespace DevOps_HW.Controllers
     [Route("api/[controller]/[action]")]
     public class UserController(AppDbContext dbContext) : ControllerBase
     {
-        public async Task<IActionResult> AddUsers([FromBody] UserAddDTO userAddDTO)
+        [HttpPost]
+        public async Task<IActionResult> AddUser([FromBody] UserAddDTO userAddDTO)
         {
             var newUser = new User
             {
@@ -23,6 +24,7 @@ namespace DevOps_HW.Controllers
             return Ok(newUser);
         }
 
+        [HttpGet]
         public async Task<List<User>> GetAll()
         {
             return await dbContext.Users.ToListAsync();
