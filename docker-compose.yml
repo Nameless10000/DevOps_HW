@@ -3,7 +3,7 @@
 services:
   web-api:
     image: web-api:latest
-    build: /Dockerfile
+    build: ./
     ports: 
       - "8080:8080"
     depends_on:
