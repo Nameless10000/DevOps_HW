@@ -26,9 +26,7 @@ jobs:
         run: docker ps -a
 
       - name: Wait for db
-        uses: actions/wait@v1
-        with:
-          time: 10s
+        run: sleep 10
 
       - name: Check db Container
         run: docker logs data-base
