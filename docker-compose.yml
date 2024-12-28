@@ -2,6 +2,7 @@
 
 services:
   web-api:
+    container_name: web-api
     image: web-api:latest
     build: ./
     ports: 
