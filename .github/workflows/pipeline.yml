@@ -37,13 +37,21 @@ jobs:
       - name: Migrate DB
         run: curl -X GET http://localhost:8080/api/User/MigrateDb
 
+      - name: Check api Container1
+        run: docker logs web-api
 
       - name: Ping API
         run: | 
-          curl -X POST http://localhost:8080/api/User/AddUser -H "Content-Type: application/json" -d '{"name": "userName1", "email": "userEmail1"}'
+          curl -X POST http://localhost:8080/api/User/AddUser -H "Content-Type: application/json" -d "{\"name\": \"userName1\", \"email\": \"userEmail1\"}"
+      
+      - name: Check api Container2
+        run: docker logs web-api
 
       - name: Get data
         run: curl -X GET http://localhost:8080/api/User/GetAll
+      
+      - name: Check api Container3
+        run: docker logs web-api
               
 
 
