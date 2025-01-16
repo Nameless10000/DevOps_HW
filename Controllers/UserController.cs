@@ -29,5 +29,13 @@ namespace DevOps_HW.Controllers
         {
             return await dbContext.Users.ToListAsync();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> MigateDb()
+        {
+            dbContext.Database.Migrate();
+
+            return Ok();
+        }
     }
 }

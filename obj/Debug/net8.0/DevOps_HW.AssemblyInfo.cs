@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DevOps_HW")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a118cb16856aa83e8884ccda336ce7743228f7c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b6187dd19d3cf82cbf0ff2499ebbe94267b0374")]
 [assembly: System.Reflection.AssemblyProductAttribute("DevOps_HW")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DevOps_HW")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
