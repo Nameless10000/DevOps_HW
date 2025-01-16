@@ -39,9 +39,9 @@ namespace DevOps_HW.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> MigateDb()
+        public async Task<IActionResult> MigrateDb()
         {
-            Console.WriteLine("MigateDb entered");
+            Console.WriteLine("MigrateDb entered");
 
             await dbContext.Database.MigrateAsync();
 
