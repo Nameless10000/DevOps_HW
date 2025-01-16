@@ -12,6 +12,7 @@ namespace DevOps_HW.Controllers
         [HttpPost]
         public async Task<JsonResult> AddUser([FromBody] UserAddDTO userAddDTO)
         {
+            Console.WriteLine("Add user entered");
             var newUser = new User
             {
                 Name = userAddDTO.Name,
@@ -21,19 +22,26 @@ namespace DevOps_HW.Controllers
             await dbContext.Users.AddAsync(newUser);
             await dbContext.SaveChangesAsync();
 
+            Console.WriteLine($"Add user finished {newUser}");
+
             return new (newUser);
         }
 
         [HttpGet]
         public async Task<JsonResult> GetAll()
         {
-            return new (await dbContext.Users.ToListAsync());
+            var users = await dbContext.Users.ToListAsync();
+
+            Console.WriteLine($"GetAll entered {string.Join(", ", users)}");
+            return new (users);
         }
 
         [HttpGet]
         public async Task<IActionResult> MigateDb()
         {
-            dbContext.Database.Migrate();
+            Console.WriteLine("MigateDb entered");
+
+            await dbContext.Database.MigrateAsync();
 
             return new JsonResult("migration completed");
         }
