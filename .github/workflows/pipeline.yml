@@ -38,11 +38,11 @@ jobs:
         run: curl -X GET http://localhost:8080/api/User/MigrateDb
 
 
-      #- name: Ping API
-      #  run: | 
-      #    curl -X POST http://localhost:8080/api/User/AddUser \
-      #    -H "Content-Type: application/json" \
-      #    -d '{"name": "userName1", "email": "userEmail1"}'
+      - name: Ping API
+        run: | 
+          curl -X POST http://localhost:8080/api/User/AddUser \
+          -H "Content-Type: application/json" \
+          -d '{"name": "userName1", "email": "userEmail1"}'
 
       - name: Get data
         run: curl -X GET http://localhost:8080/api/User/GetAll
