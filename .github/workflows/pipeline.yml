@@ -37,8 +37,10 @@ jobs:
       - name: Migrate DB
         run: curl -X GET http://localhost:8080/api/User/MigrateDb
 
-      - name: Check api Container1
-        run: docker logs web-api
+      - name: Check api Container1 & wait for migrations
+        run: |
+          docker logs web-api
+          sleep 10
 
       - name: Ping API
         run: | 

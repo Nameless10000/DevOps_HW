@@ -13,6 +13,7 @@ namespace DevOps_HW.Controllers
         public async Task<JsonResult> AddUser([FromBody] UserAddDTO userAddDTO)
         {
             Console.WriteLine("Add user entered");
+
             var newUser = new User
             {
                 Name = userAddDTO.Name,
@@ -33,6 +34,7 @@ namespace DevOps_HW.Controllers
             var users = await dbContext.Users.ToListAsync();
 
             Console.WriteLine($"GetAll entered {string.Join(", ", users)}");
+
             return new (users);
         }
 
