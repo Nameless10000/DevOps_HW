@@ -33,7 +33,7 @@ namespace DevOps_HW.Controllers
         [HttpGet]
         public async Task<IActionResult> MigateDb()
         {
-            //dbContext.Database.Migrate();
+            dbContext.Database.Migrate();
 
             return Ok();
         }
