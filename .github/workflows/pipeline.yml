@@ -39,8 +39,8 @@ jobs:
 
       - name: Check api Container1 & wait for migrations
         run: |
+          sleep 10  
           docker logs web-api
-          sleep 10
 
       - name: Ping API
         run: | 
