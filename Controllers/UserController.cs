@@ -10,7 +10,7 @@ namespace DevOps_HW.Controllers
     public class UserController(AppDbContext dbContext) : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> AddUser([FromBody] UserAddDTO userAddDTO)
+        public async Task<JsonResult> AddUser([FromBody] UserAddDTO userAddDTO)
         {
             var newUser = new User
             {
@@ -21,13 +21,13 @@ namespace DevOps_HW.Controllers
             await dbContext.Users.AddAsync(newUser);
             await dbContext.SaveChangesAsync();
 
-            return Ok(newUser);
+            return new (newUser);
         }
 
         [HttpGet]
-        public async Task<List<User>> GetAll()
+        public async Task<JsonResult> GetAll()
         {
-            return await dbContext.Users.ToListAsync();
+            return new (await dbContext.Users.ToListAsync());
         }
 
         [HttpGet]
@@ -35,7 +35,7 @@ namespace DevOps_HW.Controllers
         {
             dbContext.Database.Migrate();
 
-            return Ok();
+            return new JsonResult("migration completed");
         }
     }
 }
